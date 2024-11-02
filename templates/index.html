@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Library Management System</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="static/styles.css">
+        <style>
+            /* Additional inline styles for quick reference */
+            body {
+                background-image: url('static/download.jpg'); /* Update the path if necessary */
+                background-size: cover; /* Cover the entire background */
+                background-repeat: no-repeat; /* Prevent tiling */
+                background-position: center; /* Center the background image */
+                color: #fff; /* Change text color for better contrast */
+            }
+    
+            .container {
+                background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for better readability */
+                padding: 30px;
+                border-radius: 8px;
+                margin-top: 50px; /* Added margin for better spacing */
+            }
+    
+            h1 {
+                font-size: 2.5rem; /* Increase header size */
+                text-align: center; /* Center align header */
+                margin-bottom: 20px; /* Space below header */
+            }
+    
+            .btn-primary {
+                width: 100%; /* Full-width button */
+                padding: 10px; /* Increased padding for buttons */
+                font-size: 1.1rem; /* Larger font size */
+            }
+    
+            .nav-link {
+                font-weight: bold; /* Bold navigation links */
+            }
+    
+            footer {
+                text-align: center;
+                margin-top: 20px;
+                font-size: 0.9rem; /* Slightly smaller font for footer */
+                color: #ccc; /* Lighter color for footer text */
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/home">Library Management System</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/book_list">Book List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/chatbot">Chat with LibraryBot</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Register</a>
+                    </li>
+                </ul>
+                <a href="/logout" class="btn btn-danger my-2 my-sm-0">Logout</a>
+            </div>
+        </nav>
+        
+        <div class="container">
+            <h1>Add a Book</h1>
+            <form id="bookForm" class="mt-4" enctype="multipart/form-data">
+                <div class="form-group">
+                    <input type="text" name="title" class="form-control" placeholder="Book Title" required>
+                </div>
+                <div class="form-group">
+                    <input type="file" name="pdf" class="form-control" accept="application/pdf" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Book</button>
+            </form>
+            
+            <h2 class="mt-5">Explore Our Collection</h2>
+            <p>Browse through the list of available books and enhance your knowledge.</p>
+        </div>
+        
+        <footer>
+            <p>&copy; 2024 Library Management System. All rights reserved.</p>
+        </footer>
+        
+        <script src="static/script.js"></script>    
+    <script>
+        $(document).ready(function() {
+            $('#bookForm').on('submit', function(e) {
+                e.preventDefault();  // Prevent the default form submission
+
+                const formData = new FormData(this);  // Create a FormData object
+
+                $.ajax({
+                    url: '/add_book',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,  // Prevent jQuery from automatically transforming the data into a query string
+                    contentType: false,  // Set contentType to false to prevent jQuery from overriding it
+                    success: function(response) {
+                        alert(response.message);
+                        $('#bookForm')[0].reset();  // Reset the form
+                    },
+                    error: function() {
+                        alert('Error adding the book.');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

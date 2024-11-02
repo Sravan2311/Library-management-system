@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Additional inline styles for quick reference */
+        body {
+            background-image: url('static/download (1).jpg'); /* Update the path if necessary */
+            background-size: cover; /* Cover the entire background */
+            background-repeat: no-repeat; /* Prevent tiling */
+            background-position: center; /* Center the background image */
+            color: #fff; /* Change text color for better contrast */
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for better readability */
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 50px; /* Added margin for better spacing */
+        }
+
+        h1 {
+            font-size: 2.5rem; /* Increase header size */
+            text-align: center; /* Center align header */
+            margin-bottom: 20px; /* Space below header */
+        }
+
+        .btn-primary {
+            width: 100%; /* Full-width button */
+            padding: 10px; /* Increased padding for buttons */
+            font-size: 1.1rem; /* Larger font size */
+        }
+
+        .nav-link {
+            font-weight: bold; /* Bold navigation links */
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem; /* Slightly smaller font for footer */
+            color: #ccc; /* Lighter color for footer text */
+        }
+        </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Login</h1>
+        <form action="/" method="POST" class="mt-4">
+            <div class="form-group">
+                <input type="text" name="username" class="form-control" placeholder="Username" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" class="form-control" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        <a href="/register" class="btn btn-info mt-3">Don't have an account? Register here</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+body {
+    background-color: #f8f9fa;
+}
+
+h1 {
+    text-align: center;
+}
+
+#chatBox {
+    background-color: #ffffff;
+}
+body {
+    background-image: url('"C:\Users\Sai Sravan Raj\Downloads\download.jpg"'); /* Update the path if necessary */
+    background-size: cover; /* Cover the entire background */
+    background-repeat: no-repeat; /* Prevent tiling */
+    background-position: center; /* Center the background image */
+    color: #fff; /* Change text color for better contrast */
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for better readability */
+    padding: 20px;
+    border-radius: 8px;
+}
